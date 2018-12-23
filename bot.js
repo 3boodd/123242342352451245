@@ -546,10 +546,9 @@ message.author.sendEmbed(embed)
 
 
 
-🔗 **| سيرفر الدعم و المساعدة** :  https://discord.gg/ArGwWfH
-`)
+
 .setColor('0bbaba')
-  .setFooter(`©  SOKA™ `)
+  .setFooter(`***3bdalr7man***`)
 message.author.sendEmbed(embed)
     
 }
