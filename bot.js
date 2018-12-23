@@ -548,7 +548,6 @@ message.author.sendEmbed(embed)
 
 
 .setColor('0bbaba')
-  .setFooter(`***3bdalr7man***`)
 message.author.sendEmbed(embed)
     
 }
