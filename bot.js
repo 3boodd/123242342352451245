@@ -5100,7 +5100,7 @@ setInterval(function(){})
         
             
     }
-});
+};
 
 
 
