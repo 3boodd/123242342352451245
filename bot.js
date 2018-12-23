@@ -7,6 +7,8 @@ const ms = require('ms');
  var prefix = "-";
 
 
+//Ping-----------------------------------------------------------------------------------------------------------------------------------
+
 client.on('message', message => {
                                 if(!message.channel.guild) return;
                         if (message.content.startsWith('-ping')) {
@@ -24,7 +26,7 @@ client.on('message', message => {
                         }
                     });
                     
-
+//avatar----------------------------------------------------------------------------------------------------------------------------------
 
 
 client.on('message', message => {
@@ -47,760 +49,451 @@ client.on('message', message => {
     }
 });
 
-
-
+//quran------------------------------------------------------------------------------------------------------------------------------------
 
 client.on('message', message => {
-		if(message.content.startsWith(prefix + 'enhelp')) {      
-		   
+const yt = require('ytdl-core');
+  if (message.content.startsWith('-quran')) {
+              if(!message.channel.guild) return message.reply('** This command only for servers **');
+
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`من فضلك ادخل روم صوتي `);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://www.youtube.com/watch?v=9-oGnGaI9Ps&t=8009s', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => {
+          voiceChannel.leave();
+        });
+      });
+  }
+  
+  if (message.content.startsWith('-stop')) {
+              if(!message.channel.guild) return message.reply('** This command only for servers **');
+
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`من فضلك ادخل روم صوتي `);
+    }
+voiceChannel.leave();
+  }
+
+});
+
+otage} :two:`);
+  }, 1000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :one:`);
+  }, 2000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :boom:`);
+  }, 3000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :fire:`);
+  }, 4000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :skull:`);
+  }, 5000);
+  msg.delete(6000)
+  message.delete()
+  })
+  message.channel.send("**تم اخفاء الجريمة بنجاح :hole: **").then(msg => msg.delete(10000));
+    }
+});
+
+
+
+
+var cats = [
+
+"https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg",
+"https://www.petfinder.com/wp-content/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg",
+"http://www.i-love-cats.com/images/2015/04/12/cat-wallpaper-38.jpg",
+"https://www.aspca.org/sites/default/files/cat-care_urine-marking_main-image.jpg",
+"https://vignette1.wikia.nocookie.net/houseofnight/images/8/8b/Cats.jpg/revision/latest?cb=20130812053537",
+"https://s-media-cache-ak0.pinimg.com/originals/f0/3b/76/f03b7614dfadbbe4c2e8f88b69d12e04.jpg",
+"http://www.rd.com/wp-content/uploads/sites/2/2016/04/15-cat-wants-to-tell-you-attention.jpg"
+]
+    client.on('message', message => {
+        
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith(prefix + 'cat')) {
+        if(!message.channel.guild) return message.reply('** This command only for servers **');
+         var cat = new Discord.RichEmbed()
+.setImage(cats[Math.floor(Math.random() * cats.length)])
+.setColor(0xd3d0c4)
+   .setFooter(`©  Dream™ `)
+message.channel.sendEmbed(cat);
+
+    }
+});
+
+
+  
+client.on('message', message => {
+    if(message.content == '-members') {
     const embed = new Discord.RichEmbed()
-                   .setColor("ffffff")
-                .setFooter(` ©  SOKA™ `)
-                    .setAuthor("SOKA" ,"https://cdn.discordapp.com/attachments/409331262025891841/428511194832437251/Untitled-1_converted.png" )
-.setDescription(`
-**SPEED RESPONSE** :comet:️
-**ONLINE PER DAY** :clock330:
-**SAFE & VERFIED** :shield:
-`)
- .addField(":bar_chart:  **| Servers :**   ",`${client.guilds.size} Server`, true)
-  .addField(":ping_pong:  **| Ping :**   ",`${Date.now() - message.createdTimestamp}` + ' ms', true)
-   .addField(":globe_with_meridians:  **| Users :**   ",`${client.users.size} User`, true)
-.addField(`🔎** | DETAILED COMMANDS **️`,
-"  `-help general ` `-help special` `-help bank` `-help admin ` `-help mod ` `-help colors ` `-help music` `-help image` `-help info` `-help bot`")
-
-  .addField(`💎** | GENERAL COMMANDS **️`,
-"  `-timer` `-short` `-google` `-translate` `-flip` `-yt` `-sicon` `-embed` `-rpoll` `-poll`   `-avatar`  `-dt` ")
-
-.addField(`💫** | SPECIAL COMMANDS **️`,
-" `-iwlc` `-wlc` `-as` `-voice set` `-logset` `-rainbow` `-seen` ")
-
-.addField(`💵** | BANK COMMANDS **️`,
-"`-credits` `-daily` `-transfer` `-profile` `-level`  ")
-
-  .addField(`🛠** | ADMINS COMMANDS **️`,
-" `-bc` `-obc` `-autorole` `-antilink` `-cv` `-ct` `-del` `-names`  `-rename` `-mutechannel` `-unmutechannel` ")
-
-.addField(`🛡** | MOD COMMANDS **️`,
-" `-ban`  `-kick` `-warn` `-mute` `-unmute` `-crole` `-softban` `-clear` `-v2m` `-hidechannel` `-showchannel` ")
-
-.addField(`🌈** | COLORS COMMANDS **️`,
-" `-ccolors` `-dcolors` `-color` ")
-
-.addField(`🕋 **| ISLAMIC COMMANDS**`,
- " `-quran ` `-stop` `-اذكار`  " )
-
- .addField(`️️🎶 **| MUSIC COMMANDS**`,
- " `-mnowplaying` `-mplay` `-mplaylists` `-mrepeat` `-mqueue` `-msearch` `-mscsearch` `-mshuffle` `-mskip`  " )
-
-.addField(`🖼** | IMAGE COMMANDS **️`,
-"  `-gif` `-imgur`")
-
-.addField(`️️🎯** | FUN COMMANDS **`,
-"  `-roll` `-dick` `-kill` `-marry` `-fuckyou` `-cat` `-draw` ")
-
-.addField(`:video_game:** | GAMES COMMANDS **`,
-"`-xo` `-عواصم` `-sarahah` `-فكك` `-rps` `-امثال` `.` `-اعلام` `.` `-احصاء` `.` `ايموجي-`")
-
-.addField(`🕹** | FLH COMMANDS **`,
-" `حب` `-صراحه` `-كت تويت` `-لو خيروك` `-عقاب`")
-
-.addField(`👤 **| INFO COMMANDS **`,
-" `-ping` `-id ` `-هويتي` `-userinfo` `-serverinfo`  `-roles` `-members` ")
-
- .addField(`🔧 **| BOT INFO**`,
-" `-invite` `-support` `-info` `-stats` ")
-
- .addField("🌍 **| OWNER :**   ",
-" `-contact` `-sug` `-bug` ")
-.addField("**:globe_with_meridians: | WEBSITE :**","https://dreamsbot.wixsite.com/dreams")
- .addField('🔗 **| INVITE** :' , " https://goo.gl/s8AwxX")
- .addField('🔗 **| SUPPORT SERVER** :' , " https://discordapp.com/invite/gP6q8tY")
-  .setFooter(`©  Dream™ `)
-message.react("📮")
- 
-message.author.sendEmbed(embed);
-    }
-});
-
-
-//help general ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help general") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-         .setDescription(`  ** 「💎 | GENERAL COMMANDS」**`)
- .addField("`-timer`",
-" To Start A Timer .")
- .addField("`-short`",
-" To Short Any Link With Google Shortner .")
-.addField("`-google`",
-" To Search In Google .")
-  .addField("`-translate`",
-" To translate a sentence from & to differnt langs **Ex:** -translate english arabic hi")
-.addField("`-discrim`",
-" To Find People With the Same discriminator .")
- .addField("`-flip`",
-" To Flip A Coin (TAILS Or HEADS) .")
- .addField("`-sicon`",
-" To Preview The Server Icon  .")
- .addField("`-embed`",
-" To Send Your Message In Embed  .")
- .addField("`-rpoll`",
-" To Start A Reaction Poll .")
- .addField("`-poll`",
-" To Start A Random Poll .")
-
- .addField("`-avatar`",
-"  To Preview Member's Avatar")
- 
- .addField("`-dt`",
-" To preview Time & Date In 3 Diffrent Countries  .")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**   ",
-" `-contact` ")
-.setFooter(`©  SOKA™ `)
-message.react("💎")
-message.author.sendEmbed(embed);
+    .setDescription(`**Members info🔋
+:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+:heart:dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+:yellow_heart: idle:      ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+:black_heart: offline:   ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+:blue_heart:   all:  ${message.guild.memberCount}**`)         
+             .setColor(0xd3d0c4)
+            .setFooter(`©  Dream™ `)
+         message.channel.send({embed});
 
     }
-});
+  });
 
 
-//help special ----------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+
+//اذكار --------------------------------------------------------------------------------
+const adkar = [
+  '**اذكار  | **اللَّهُمّ�� اكْفِنِي بِحَلَ��لِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ.',
+  '**اذكار  |  **اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى. ',
+  '**اذكار  ‏|  **اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ، دِقَّهُ، وَجِلَّهُ، وَأَوَّلَهُ، وَآخِرَهُ، وَعَلَانِيَتَهُ، وَسِرَّهُ. ',
+  '**‏اذكار  |  **أستغفر الله .',     
+  '**‏اذكار  | **الْلَّهُ أَكْبَرُ',
+  '**‏اذكار  |  **لَا إِلَهَ إِلَّا اللَّ��ُ',
+  '**اذكا��  |  **اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ , وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ , اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ.',
+  '**اذكار  |  **سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ',
+  '**اذكار  | **لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلُّ شَيْءِ قَدِيرِ.',
+  '**اذكار  | **أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ',
+  '**‏اذكار  | **سُبْحـانَ اللهِ وَبِحَمْـدِهِ. ',
+  '‏**اذكار**|  لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءِ قَدِيرِ.',
+  '**اذكار  ‏|   **اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُت��قَبّ��لًا.',
+  '**اذكار  | ‏ **يَا رَبِّ , لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ , وَلِعَظِيمِ سُلْطَانِكَ.',
+  'اذكار    |  **أسْتَغْفِرُ اللهَ العَظِيمَ الَّذِي لاَ إلَهَ إلاَّ هُوَ، الحَيُّ القَيُّومُ، وَأتُوبُ إلَيهِ.**',
+  '**‏اذكار  |  **اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ أَنْ نُشْرِكَ بِكَ شَيْئًا نَعْلَمُهُ ، وَنَسْتَغْفِرُكَ لِمَا لَا نَعْلَمُهُ.',
+  '**‏اذكار  |  **اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ على نَبِيِّنَا مُحمَّد. ',
+  '**‏اذكار  |  **أَعـوذُ بِكَلِمـاتِ اللّهِ التّـامّـاتِ مِنْ شَـرِّ ما خَلَـق.',
+  '**اذكار  |  **يَا حَيُّ يَا قيُّومُ ب��رَحْمَتِكَ أسْتَغِيثُ أصْلِحْ لِي شَأنِي كُلَّهُ وَلاَ تَكِلْنِي إلَى نَفْسِي طَـرْفَةَ عَيْنٍ. ',
+  '**اذكار  |  **اللّهُـمَّ إِنّـي أَعـوذُ بِكَ مِنَ الْكُـفر ، وَالفَـقْر ، وَأَعـوذُ بِكَ مِنْ عَذابِ القَـبْر ، لا إلهَ إلاّ أَنْـتَ.',
+  '**‏اذكار  |  **اللّهُـمَّ عاف��ـني في بَدَنـي ، اللّهُـمَّ عافِـني في سَمْـعي ، اللّهُـمَّ عافِـني في بَصَـري ، لا إلهَ إلاّ أَنْـتَ.',
+  '**‏اذكار  |  **سُبْحـانَ اللهِ وَبِحَمْـدِهِ عَدَدَ خَلْـقِه ، وَرِضـا نَفْسِـه ، وَزِنَـةَ عَـرْشِـه ، وَمِـدادَ كَلِمـاتِـه. ',
+  '**‏اذكار  |  **اللّهُـمَّ بِكَ أَصْـبَحْنا وَبِكَ أَمْسَـينا ، وَبِكَ نَحْـيا وَبِكَ نَمُـوتُ وَإِلَـيْكَ النُّـشُور.',
+  '**‏اذكار  |  **بِسـمِ اللهِ الذي لا يَضُـرُّ مَعَ اسمِـهِ شَيءٌ في الأرْضِ وَلا في السّمـاءِ وَهـوَ السّمـيعُ العَلـيم. ',
+  '**‏اذكار  |  **حَسْبِـيَ اللّهُ لا إلهَ إلاّ هُوَ عَلَـيهِ تَوَكَّـلتُ وَهُوَ رَبُّ العَرْشِ العَظـيم.',
+  '**اذكار  |  **اللّهُـمَّ ما أَصْبَـَحَ بي مِـنْ نِعْـمَةٍ أَو بِأَحَـدٍ مِـنْ خَلْـقِك ، فَمِـنْكَ وَحْـدَكَ لا شريكَ لَـك ، فَلَـكَ الْحَمْـدُ وَلَـكَ الشُّكْـر.',
+  '**‏اذكار  |  **اللّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك ، وَأُشْـهِدُ حَمَلَـةَ عَـرْشِـك ، وَمَلَائِكَتَكَ ، وَجَمـيعَ خَلْـقِك ، أَنَّـكَ أَنْـتَ اللهُ لا إلهَ إلاّ أَنْـتَ وَحْـدَكَ لا شَريكَ لَـك ، وَأَنَّ ُ مُحَمّـداً عَبْـدُكَ وَرَسـولُـك',
+  '**‏اذكار  |  **رَضيـتُ بِاللهِ رَبَّـاً وَبِالإسْلامِ ديـناً وَبِمُحَـمَّدٍ صلى الله عليه وسلم نَبِيّـاً',
+  '**‏اذكار  |  **اللهم إني أعوذ بك من العجز، والكسل، والجبن، والبخل، والهرم، وعذاب القبر، اللهم آت نفسي تقواها، وزكها أنت خير من زكاها. أنت وليها ومولاها. اللهم إني أعوذ بك من علم لا ينفع، ومن قلب لا يخشع، ومن نفس لا تشبع، ومن دعوة لا يستجاب لها',
+  '**‏اذكار  |  **اللهم إني أعوذ بك من شر ما عملت، ومن شر ما لم أعمل',
+  '**‏اذكار  |  **اللهم مصرف القلوب صرف قلوبنا على طاعتك',
+]
 client.on('message', message => {
-     if (message.content === "-help special") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-         .setDescription(`** 「💫| SPECIAL COMMANDS」**`)
-               
-                   .addField("`-wlc`",
-" To Active Welcome & Leave In Your Server .")
- .addField("`-iwlc`",
-" To Active image Welcome In Your Server **Command :**  -iwlc toggle  .")
- .addField("`-as`",
-" To Preview Auto-Responding Settings")
-.addField("`-rainbow`",
-" To Change A Role Color Automaticly **Ex** -rainbow @rainbow_role .")
- .addField("`-voice set`",
-"  To Create A Voice Channel Named With Voice Online Members   .")
- .addField("`-logset`",
-" To Active Log Channel For Server Actions **Command :**   -log set .")
- .addField("`-seen`",
-" To See Member's Last Activity in Server  .")
+if (message.author.bot) return;
+if (message.content.startsWith('-اذكار')) {
+  if(!message.channel.guild) return;
+var client= new Discord.RichEmbed()
+.setTitle("اذكار")
+.setThumbnail('https://static-s.aa-cdn.net/img/ios/914318093/10dec544bb3e64219e85757e09608f55?v=1')
+.setColor('RANDOM')
+.setDescription(`${adkar[Math.floor(Math.random() * adkar.length)]}`)
+               .setTimestamp()
+message.channel.sendEmbed(client);
 
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact` ")
-.setFooter(`©  SOKA™ `)
-message.react("💫")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help general ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help colors") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-         .setDescription(`** 「🌈 | COLORS COMMANDS」**`)
-         
-.addField("`-ccolors`",
-" To Create 25 Random Colors ")
- .addField("`-colors`",
-" To Preview The 25  Colors")
- .addField("`-dcolors`",
-" To Delete Colors Roles  .")
- .addField("`-color`",
-" To Pick A color  .")
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**   ",
-" `-contact` ")
-.setFooter(`©  SOKA™ `)
-message.react("🌈")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help bank----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help bank") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-    .setDescription(`** 「💵** | BANK COMMANDS」**`)
-.addField("`-daily`",
-" To Get Your Salary Every 10 min   .")
-.addField("`-credits`",
-" To Check Your Credits  .")
-.addField("`-transfer`",
-" To Transfer Credits To Another Account  .")
-.addField("`-profile`",
-" To Preview Your Profile  .")
-.addField("`-level`",
-" To Check Your Level  .")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("💵")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help admin ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help admin") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-         .setDescription(` ** 「🛠 | ADMINS COMMANDS」**`)
-.addField("`-bc`",
-" To Broadcast A msg To All Server Members  .")
-.addField("`-obc`",
-" To Broadcast A msg To All Online Server Members  .")
-.addField("`-autorole`",
-" To Preview AutoRoles Setting   .")
-.addField("`-antilink`",
-" To Activate AntiLink  .")
-.addField("`-clear`",
-" To Delete x of messages Or All Messages **Ex:** -clear 5  .")
-.addField("`-cv`",
-" To Create A Voice Room  .")
-.addField("`-ct`",
-" To Create A Text Room  .")
-.addField("`-delete`",
-" To Delete A Voice Room   .")
-.addField("`-names`",
-" To Preview Member's previous Names   .")
-.addField("`-rename`",
-" To Change a Member's Nickname   .")
-.addField("`-mutechannel`",
-" To Lock A Text Channel   .")
-.addField("`-unmutechannel`",
-" To Unlock A Text Channel   .")
-
-.setColor("RANDOM")
-.addField("���� **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("🛠")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help mod--------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help mod") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
-           
- const embed = new Discord.RichEmbed()
-         .setDescription(`** 「🛡| MOD COMMANDS 」**`)
-.addField("`-ban`",
-" To Ban A Member From Server   .")
-.addField("`-softban`",
-" To Kick A User, deleting 1 day worth of messages.   .")
-.addField("`-kick`",
-" To Kick A member From Server   .")
-.addField("`-warn`",
-" To Warn A Member 3 Times Then Kick Him Automatic **Ex:** -warn @OS    .")
-.addField("`-mute`",
-" To Chat Mute Any Member   .")
-.addField("`-unmute`",
-" To unmute A Member   .")
-.addField("`-crole`",
-" To Create A role   .")
-.addField("`-editrole`",
-" To Edit A role By Commands    .")
-.addField("`-rename`",
-" To Change a Member's Nickname   .")
-.addField("`-v2m`",
-" To Create Voice Channel With 2 Min Timeout   .")
-.addField("`-hidechannel`",
-" To Hide A Text Channel   .")
-.addField("`-showchannel`",
-" To Unhide A Text Channel   .")
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**   ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("🛡")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help music ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help music") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
-           
- const embed = new Discord.RichEmbed()
-         .setDescription(` ** 「️️️🎶| MUSIC COMMANDS」**`)
-.addField("`-mplay`",
-" To Play A ( Youtube Link / Song By Name )   .")
-.addField("`-msearch`",
-" To Search A video In Youtube and play it by choose it   .")
-.addField("`-mqueue`",
-" To  See The Wating Music List   .")
-.addField("`-mnowplaying`",
-" To Display the current song in chat   .")
-.addField("`-mskip`",
-" To Skip The Current Song .")
-.addField("`-mvolume`",
-" To Change Volume Ratio   .")
-.addField("`-mshuffle`",
-" To Shuffles the playlist     .")
-.addField("`-mrepeat`",
-" To Loop The Queue   .")
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("️️️🎶")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-
-
-//help image ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help games") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
- .setDescription(`** 「:video_game: | GAMES COMMANDS」**`)
-.addField("`-xo`",
-" To Play XO With Comp   .")
-.addField("`-chess`",
-"  Chess Game For 2 players    .")
-.addField("`-sarahah`",
-" Sarahah Commands    .")
-.addField("`-rps`",
-" To Start A Reaction PollTo Play (Rock , Paper , scissors) ")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("🖼")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-
-//help Games ----------------------------------------------------------------------------------------------------------------------------------------------
-
-
-client.on('message', message => {
-     if (message.content === "-help image") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
- .setDescription(`** 「🖼 | Image COMMANDS」**`)
-.addField("`-gif`",
-" To GiF Search By Command   .")
-.addField("`-imgur`",
-" To Image Search In Imgur **EX:** -imgur random cats   .")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("🖼")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help info ----------------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help info") {
-           if(!message.channel.guild) return message.reply('** This command only for servers**');
- const embed = new Discord.RichEmbed()
-         .setDescription(`  ** 「👤 | INFO COMMANDS」**`)
-                 
-               
-                 .addField("`-ping`",
-" To Preview Bot's Ping .")
-.addField("`-id`",
-" To Preview Member's Id .")
- .addField("`-هويتي`",
-" لعرض بطاقة الهوية .")
-.addField("`-userinfo`",
-" To Preview Information About user   .")
-.addField("`-serverinfo`",
-" To preview Information About Server .")
-.addField("`-roles`",
-"To preview Server Roles .   .")
-.addField("`-members`",
-"  To Preview Member's Status   .")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("👤")
-message.author.sendEmbed(embed);
-
-    }
-});
-
-//help bot ------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-help bot") {
- const embed = new Discord.RichEmbed()
-         .setDescription(` ** 「🔧 | BOT INFO」**`)
-                
-.addField("`-invite`",
-"  To Invite Bot To Your Server  .")
-.addField("`-support`",
-"   To Join Our Support Server   .")
-.addField("`-bot`",
-"  To preview Info About Bot   .")
-.addField("`-stats`",
-"  To preview Bots Stats   .")
-
-.setColor("RANDOM")
-.addField("🌍 **| OWNER :**  ",
-" `-contact`")
-.setFooter(`©  SOKA™ `)
-message.react("🔧")
-message.author.sendEmbed(embed);
-
-    }
-});
-  
-//help bot ------------------------------------------------------------------------------------------------------------------------------------
-
-client.on('message', message => {
-     if (message.content === "-as") {
- const embed = new Discord.RichEmbed()
-.setTitle(` ** 「:recycle:  | Auto Responding」**`)
-                
-.addField("`-asadd`",
-`  To Add A AS Command  
-لاضافة امر رد تلقائي 
--asadd back Welcome`)
-
-.addField("`-asedit`",
-`   To Edit A AS exists Command  
-للتعديل على امر موجود مسبقا .
--asedit back Wlc`)
-
-.addField("`-asdelete`",
-`  To Delete A AS Command
-لمسح امر رد تلقائي.
--asdelete back `)
-
-.addField("`-aslist`",
-`  To preview AS Commands List  
-لعرض قائمة اوامر الردود التلقائية.`)
-
-.setColor("ffffff")
-
-.setFooter(`©  SOKA™ `)
-
-message.channel.sendEmbed(embed);
 }
 });
 
-//help bot ------------------------------------------------------------------------------------------------------------------------------------
+
+
+//عقاب  --------------------------------------------------------------------------------
+
+const Za7f = [
+    "**صورة وجهك او رجلك او خشمك او يدك**.",
+    "**اصدر اي صوت يطلبه منك الاعبين**.",
+    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
+    "**روح الى اي قروب عندك في الواتس اب و اكتب اي شيء يطلبه منك الاعبين  الحد الاقصى 3 رسائل**.",
+    "**قول نكتة اذا و لازم احد الاعبين يضحك اذا م����������������د ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
+    "**سمعنا صوتك و غن اي اغنية من اختيار الاعبين الي معك**.",
+    "**ذي المرة لك لا تعيدها**.",
+    "**ارمي جوالك على الارض بقوة و اذا انكسر صور الجوال و ارسله في الشات العام**.",
+    "**صور اي شيء يطلبه منك الاعبين**.",
+    "**اتصل على ابوك و قول له انك رحت مع بنت و احين هي حامل....**.",
+    "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
+    "**سو مشهد تمثيلي عن مصرية بتولد**.",
+    "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت ��لك��**.",
+    "**��ي المرة ��ك لا تعيدها**.",
+    "**ارمي جوالك على الارض بقوة و اذا انكسر صور الجوال و ارسله في الشات العام**.",
+    "**روح عند اي احد بالخاص و قول له انك تحبه و الخ**.",
+    "**اكتب في الشات اي شيء يطلبه منك الاعبين في الخاص**.",
+    "**قول نكتة اذا و لازم احد الاعبين يضحك اذا محد ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
+    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
+    "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
+    "**غير اسمك الى اسم من اختيار الاعبين الي معك**.",
+    "**اتصل على امك و قول لها انك تحبها :heart:**.",
+    "**لا يوجد سؤال لك سامحتك :slight_smile:**.",
+    "**قل لواحد ماتعرفه عطني كف**.",
+    "**منشن الجميع وقل انا اكرهكم**.",
+    "**اتصل لاخوك و قول له انك سويت حادث و الخ....**.",
+    "**روح المطبخ و اكسر صحن او ك��ب**.",
+    "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت الكف**.",
+    "**قول لاي بنت موجود في الروم كلمة حلوه**.",
+    "**تكلم باللغة الانجليزية الين يجي دورك مرة ثانية لازم تتكلم اذا ما تكلمت تنفذ عقاب ثاني**.",
+    "**لا تتكلم ولا كلمة الين يجي دورك مرة ثانية و اذا تكلمت يجيك باند لمدة يوم كامل من السيرفر**.",
+    "**قول قصيدة **.",
+    "**تكلم باللهجة السودانية الين يجي دورك مرة ثانية**.",
+    "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
+    "**اول واحد تشوفه عطه كف**.",
+    "**سو مشهد تمثيلي عن اي شيء يطلبه منك الاعبين**.",
+    "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
+    "**اتصل على ابوك و قول له انك رحت مع بنت و احين هي حامل....**.",
+    "**روح اكل ملح + ليمون اذا مافيه اكل اي شيء من اختيار الي معك**.",
+    "**تاخذ عقابين**.",
+    "**قول اسم امك افتخر بأسم امك**.",
+    "**ارمي اي شيء قدامك على اي احد موجود او على نفسك**.",
+    "**اذا انت ولد اكسر اغلى او احسن عطور عندك اذا انتي بنت اكسري الروج حقك او الميك اب حقك**.",
+    "**اذهب الى واحد ماتعرفه وقل له انا كيوت وابي بوسه**.",
+    "**تتصل على الوالده  و تقول لها خطفت شخص**.",
+    "** تتصل على الوالده  و تقول لها تزوجت با سر**.",
+    "**����تصل على الوالده  و تقول لها  احب وحده**.",
+      "**تتصل على شرطي تقول له عندكم مطافي**.",
+      "**خلاص سامحتك**.",
+      "** تصيح في الشارع انا  مجنوون**.",
+      "** تروح عند شخص ��قول له احبك**.",
   
-  client.on('message', message => {
-     if (message.content === "-help") {
-         var embed = new Discord.RichEmbed()
-          .setAuthor("Dreams" ,"https://cdn.discordapp.com/attachments/409331262025891841/428511194832437251/Untitled-1_converted.png" )
-          .addField("**:flag_us: | English Help **" , "`-enhelp`" )
-               .addField("**:flag_sa: | للمساعدة باللغة العربية ** ", "`-arhelp`" )
-          .setColor('0bbaba')
-  message.channel.sendEmbed(embed).then(msg => msg.delete(15000));
-     }
+]
+
+
+ client.on('message', message => {
+   if (message.content.startsWith("-عقاب")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+  var embed = new Discord.RichEmbed()
+  .setColor(0xd3d0c4)
+   .setThumbnail(message.author.avatarURL) 
+   .setFooter(`©  Dream™ `)
+ .addField('عقاب' ,
+  `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
+  message.channel.sendEmbed(embed);
+    }
 });
+
+
+
+
+//لوخيروك--------------------------------------------------------------------------------
+
+ var prefix = "-";
+var rebel = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_682a1cus5.png","https://d.top4top.net/p_682pycol4.png","https://c.top4top.net/p_682vqehy3.png","https://b.top4top.net/p_682mlf9d2.png","https://a.top4top.net/p_6827dule1.png","https://b.top4top.net/p_682g1meb10.png","https://a.top4top.net/p_682jgp4v9.png","https://f.top4top.net/p_682d4joq8.png","https://e.top4top.net/p_6828o0e47.png","https://d.top4top.net/p_6824x7sy6.png","https://c.top4top.net/p_682gzo2l5.png","https://b.top4top.net/p_68295qg04.png","https://a.top4top.net/p_682zrz6h3.png","https://f.top4top.net/p_6828vkzc2.png","https://e.top4top.net/p_682i8tb11.png"]
+    client.on('message', message => {
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith(prefix + 'لو خيروك')) {
+         var cat = new Discord.RichEmbed()
+.setImage(rebel[Math.floor(Math.random() * rebel.length)])
+ .setColor(0xd3d0c4)
+   .setFooter(`©  Dream™ `)
+message.channel.sendEmbed(cat);
+
+    }
+});
+
+
+
   client.on('message', message => {
-     if (message.content === "-arhelp") {
-         
-         
-      var dm = new Discord.RichEmbed()
-.setDescription(":ballot_box_with_check: | تم ارسال المساعدة في الخاص")
-   .setColor('0bbaba')
-message.channel.sendEmbed(dm).then(msg => msg.delete(5000));
-message.react("📩")
-var embed = new Discord.RichEmbed()
- .setAuthor("SOKA" ,"https://cdn.discordapp.com/attachments/499213385750282244/502842976095961099/no_u.png" )
-.setThumbnail(client.user.avatarURL)
-.setDescription(`
-** :robot:  ميزات البوت  :robot: **
-**:zap:  أوامر السرعة  :zap:**
-** :pick:  كل يوم التحديثات  :pick: **
-**:radio_button: 24 ساعة اونلاين :100:**
-**:flag_sa:   ندعم اللغة العربية و الانكليزية  :flag_us: **
-
-**امر البوت** -
-:bar_chart: **عدد السيرفرات** ${client.guilds.size} 
-:ping_pong: **بينق البوت** ${Date.now() - message.createdTimestamp}
-:globe_with_meridians: **عدد الاعضاء** ${client.users.size} 
+  
+if(message.content.split(' ')[0] == '-srh'){
+       if (message.author.bot) return;
+     if(!message.channel.guild) return;
+                       
+let args = message.content.split(' ').slice(1).join(' ');
+let arg = message.content.split(' ').slice(2).join(' ');
+if(!args) return message.reply ("**Mention A member please** :dove: ");
+  if(!arg) return message.reply ("**Write A Message** :dove: ");
 
 
+ 
+ 
+ var user = message.mentions.users.first();
 
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-💎** | ألأوأمر ألعأمة **
+       
+        if(user === message.author) return; 
+          let em  = new Discord.RichEmbed()
+.setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+.addField("◆ Msg : " , arg)
 
- -timer
-   └─ لعمل مؤقت لمدة
- -short
-   └─ لأنشاء اختصار رابط
- -google 
-   └─ للبحث في Google
- -translate
-   └─ لترجمة الكلام
-   -discrim
-   └─ لعرض اشخاص نفس تاقك
- -yt
-   └─ للبحث في اليوتيوب
- -sicon
-   └─ لعرض صورة السيرفر
- -embed 
-   └─ ألبوت يكرر كلأمك في صورة امبد
- -flip 
-   └─ صورة ولا كتابة 
- -avatar 
-   └─ لأظهأر صورة العرض الخاصة بك
- -dt 
-   └─ لأظهار ألوقت ألأن
- -rpoll
-   └─ لعمل تصويت بالايموجي
- -poll
-   └─ لعمل تصويت كتابي
-   
-   `)
-   .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-💫** | الاوامر المميزة **
+ .setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+                 message.delete()                                    
+client.guilds.get(message.guild.id).members.get(user.id).sendEmbed(em)
+           
+
+ let embed = new Discord.RichEmbed()
+ .setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+ .setDescription(':dove: شكرا لصراحتك')
+ .setColor("10bbb3")
+.setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+  message.channel.sendEmbed(embed);
+}
+});
 
 
- -iwlc
-   └─ امر تثبيت الترحيب بالصورة
- -wlc
-   └─ امر تثبيت الترحيب الكتابي
- -as
-   └─ امر الرد التلقائي
- -voice set
-   └─ لانشاء روم عدد الاعضاء في الرومات الصوتية
- -logset
-   └─ امر تثبيت شات لوق لعرض احداث السيرفر كاملة
- -rainbow
-   └─ امر تغيير لون رتبة تلقائيا
- -seen
-   └─ لمعرفة اخر ظهور لعضو في السيرفر
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-💵** | اوامر البنك **️
+client.on('message', message => {
+  
+if(message.content.split(' ')[0] == '-srh1'){
+       if (message.author.bot) return;
+     if(!message.channel.guild) return;
+                       
+let args = message.content.split(' ').slice(1).join(' ');
+let arg = message.content.split(' ').slice(2).join(' ');
+if(!args) return message.reply ("**Mention A member please** :dove: ");
+  if(!arg) return message.reply ("**Write A Message** :dove: ");
 
- -credits
-   └─ لمعرفة رصيدك في البنك
- -daily
-   └─ لاخذ راتبك اليومي من البنك
- -transfer
-   └─ لتحويل مبلغ معين لحساب اخر
- -profile
-   └─ لعرض البطاقة الشخصية الخاصة بك
- -level
-   └─ لعرض المستوى 
- -xp
-   └─ لمعرفة نقاطتك
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-🛠** | الاوامر الادارية **️
 
- -bc
-   └─ لارسال رسالة الي جميع اعضاء السيرفر
- -obc
-   └─ لارسال رسالة لاعضاء البوت الاونلاين فقط
- -autorole
-   └─ امر تثبيت رتبة تعطى تلقائيا عن دخول عضو للسيرفر
- -antilink
-   └─ امر منع نشر الروابط
- -cv
-   └─ امر انشاء روم صوتي
- -ct
-   └─ امر انشاء روم كتابي
- -del
-   └─ لمسح روم معين 
- -names
-   └─ لمعرفة اخر اسماء لعضو معين
- -rename 
-   └─ التغيير النك نيم الخاص بعضو معين
- -mutechannel
-   └─ لعمل ميوت كتابي لشات معين
- -unmutechannel
-   └─ لفك الميوت الكتابي لشات معين 
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-🛡** | اوامر المراقبة **️
+ 
+ 
+ var user = message.mentions.users.first();
 
- -ban
-   └─ لتبنيد عضو من السيرفر
- -kick
-   └─ لطرد عضو من السيرفر
- -warn
-   └─ اعطاء تحذير لعضو من ثم يطرد العضو تلقائيا بعد ثلاث تحذيرات
- -mute
-   └─ ميوت كتابي بوقت
- -unmute
-   └─ فك الميوت الكتابي
- -crole
-   └─ امر انشاء رتبة 
- -softban
-   └─ تبنيد عضو مع مسح رسائل يوم كامل
- -clear
-   └─ مسح شات كامل او عدد رسائل محددة
- -v2m
-   └─ انشاء روم صوتي لمدة دقيقتين فقط
- -hidechannel
-   └─ لاخفاء شات من جميع الاعضاء
- -showchannel
-   └─ لاظهار الشات لجميع الاعضاء
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-🌈** | اوامر الالوان **
+       
+        if(user === message.author) return; 
+          let e  = new Discord.RichEmbed()
+.setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+.addField("◆ Sent By :" , message.author.tag)
+.addField("◆ Msg : " , arg)
 
- -color
-   └─ لاختيار لون من الوان السيرفر ان وجد الوان
- -ccolors
-   └─ لانشاء 25 لون تلقائي
- -dcolors
-   └─ لمسح الالوان 
- -colors
-   └─ لعرض ال 25 لون المنشئة
-    `)
-    .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-🖼** | اوامر الصور **
-
- -gif
-   └─ للبحث عن صورة متحركة 
- -imgur
-   └─ للبحث عن صور
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-:video_game:** | اوامر الالعاب **
-
- -xo
-   └─ للعب اكس او مع البوت
- -عواصم
-   └─ اسئلة شيقة عن عواصم دول العالم
- -sarahah
-   └─ لارسال رسالة مجهولة لشخص معين
- -فكك
-   └─ فكك الكلمات ف اسرع وقت 
- -rps
-   └─ للعب حجر ورقة مقص مع البوت
- -امثال
-   └─ امثال و انت تكملها 
- -اعلام
-   └─ اعرف الدولة عن طريق العلم
-   -ايموجي
-   └─ ابحث عن الايموجي المطلوب في اسرع وقت
- -احصاء
-   └─ يقولك لعبت كام مرة و فزت و خسرت و الكريديت الي كسبته 
-    `)
-    .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-👤 **| اوامر المعلومات **
-
- -id 
-   └─ لعرض هويتك باللغة الانجليزية بالصورة
- -هويتي
-   └─ هويتي باللغة العربية بالصورة
- -userinfo
-   └─ لعرض معلوماتك بالسيرفر
- -serverinfo
-   └─ لعرض معلومات السيرفر 
- -roles
-   └─ لعرض رتب السيرفر
- -members
-   └─ لعرض حالة اعضاء السيرفر
-    `)
-    .setColor('0bbaba')
-message.author.sendEmbed(embed)
-var embed = new Discord.RichEmbed()
-.setDescription(`
-🔧 **| معلومات البوت**
-   
- -Ping
-   └─ لعرض بينق البوت
- -inv
-   └─ لدعوة البوت لسيرفرك
- -support
-   └─ لعرض معلوماتك بالسيرفر
- -info
-   └─ لعرض معلومات البوت
- -stats
-   └─ لعرض احصاءات عن البوت
- `)
- .setColor('0bbaba')
-message.author.sendEmbed(embed)
- var embed = new Discord.RichEmbed()
-.setDescription(`
- :comet:  **| اوامر التواصل**
-   
- -contact
-   └─ لارسال رسالة لمطورين البوت
- -sug
-   └─ لارسال اقتراح للبوت
- -bug
-   └─ للابلاغ عن اي عطل في الاوامر
+ .setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+    message.delete()                                           
+client.guilds.get(message.guild.id).members.get(user.id).sendEmbed(e)
+                                  
 
 
 
-🔗 **| سيرفر الدعم و المساعدة** :  
-`)
-.setColor('0bbaba')
-  .setFooter(`©  SOKA™ `)
-message.author.sendEmbed(embed)
+ let embed = new Discord.RichEmbed()
+ .setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+ .setDescription(':dove: شكرا لصراحتك')
+ .setColor("10bbb3")
+.setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+  message.channel.sendEmbed(embed);
+}
+});
+
+
+
+client.on('message', message => {
+  
+if(message.content.split(' ')[0] == '-sr7'){
+       if (message.author.bot) return;
+     if(!message.channel.guild) return;
+                       if(user === message.author) return;  
+let args = message.content.split(' ').slice(1).join(' ');
+let arg = message.content.split(' ').slice(2).join(' ');
+if(!user) return message.reply ("**Mention A member please** :dove: ");
+  if(!arg) return message.reply ("**Write A Message** :dove: ");
+
+
+ 
+ var user = message.mentions.users.first();
+
+       
+      
+
+const w = ['./Dreams/img/sarahah.png'];
+var Canvas = require('canvas')
+var jimp = require('jimp')
+
+              
+        let Image = Canvas.Image,
+            canvas = new Canvas(500, 500),
+            ctx = canvas.getContext('2d');
+        ctx.patternQuality = 'bilinear';
+        ctx.filter = 'bilinear';
+        ctx.antialias = 'subpixel';
+  
+        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 500, 500);
+
+})
+ 
+
+                let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(20, 20) + ".png" : message.author.displayAvatarURL;
+                jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+
+                        let Avatar = Canvas.Image;
+                        let ava = new Avatar;
+                        ava.src = buf;
+                        ctx.drawImage(ava, -100 , -100, 70, 70);
+                                             
     
+                       
+                  
+                      
+                        ctx.font = 'Bold 28px Arial ';
+                        ctx.fontSize = '28px';
+                        ctx.fillStyle = "#000000";
+                        ctx.textAlign = "center";
+                        ctx.fillText(arg, 242 , 201 );
+
+
+
+
+
+            // when someone calls this command, it also adds 1 earlier at the same, but since this is fetching the previous value, we need to add 1 to the answer, even thought it will be updated
+            // seconds after this.
+   
+
+    message.delete()                                           
+client.guilds.get(message.guild.id).members.get(user.id).sendFile(canvas.toBuffer())
+                                  
+     })
+    })
+
+
+
+
+ let embed = new Discord.RichEmbed()
+ .setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+ .setDescription(':dove: شكرا لصراحتك')
+ .setColor("10bbb3")
+.setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+  message.channel.sendEmbed(embed);
 }
 });
+
+
+
+client.on('message', message => {
+     if (message.content === "-sarahah") {
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+ const embed = new Discord.RichEmbed()
+         .setDescription(`** 「:dove: | SARAHAH COMMANDS」**`)
+         .addField("`-sr7`",
+         "	لارسال صراحة بالصورة")
+.addField("`-srh`",
+         "لارسال صراحة بدون اسم")
+
+.addField("`-srh1`",
+         "لارسال صراحة باسم ")
+         
+         .addField("`مثال`",
+         "**-srh @OSmix Single Or Taken ?** ")
+
+
+
+.setColor("10bbb3")
+.setFooter(`©  Dreams™ `)
+message.channel.sendEmbed(embed);
+
+    }
+});
+
+
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
 
