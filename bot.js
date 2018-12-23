@@ -6,7 +6,210 @@ const sql = require('sqlite');
 const ms = require('ms');
  var prefix = "-";
 
+client.on('message', message => {
+		if(message.content.startsWith(prefix + 'enhelp')) {      
+		   
+    const embed = new Discord.RichEmbed()
+                   .setColor("ffffff")
+                .setFooter(` ©  SOKA™ `)
+                    .setAuthor("SOKA" ,"https://cdn.discordapp.com/attachments/409331262025891841/428511194832437251/Untitled-1_converted.png" )
+.setDescription(`
+**SPEED RESPONSE** :comet:️
+**ONLINE PER DAY** :clock330:
+**SAFE & VERFIED** :shield:
+`)
+ .addField(":bar_chart:  **| Servers :**   ",`${client.guilds.size} Server`, true)
+  .addField(":ping_pong:  **| Ping :**   ",`${Date.now() - message.createdTimestamp}` + ' ms', true)
+   .addField(":globe_with_meridians:  **| Users :**   ",`${client.users.size} User`, true)
+.addField(`🔎** | DETAILED COMMANDS **️`,
+"  `-help general ` `-help special` `-help bank` `-help admin ` `-help mod ` `-help colors ` `-help music` `-help image` `-help info` `-help bot`")
 
+  .addField(`💎** | GENERAL COMMANDS **️`,
+"  `-timer` `-short` `-google` `-translate` `-flip` `-yt` `-sicon` `-embed` `-rpoll` `-poll`   `-avatar`  `-dt` ")
+
+.addField(`💫** | SPECIAL COMMANDS **️`,
+" `-iwlc` `-wlc` `-as` `-voice set` `-logset` `-rainbow` `-seen` ")
+
+.addField(`💵** | BANK COMMANDS **️`,
+"`-credits` `-daily` `-transfer` `-profile` `-level`  ")
+
+  .addField(`🛠** | ADMINS COMMANDS **️`,
+" `-bc` `-obc` `-autorole` `-antilink` `-cv` `-ct` `-del` `-names`  `-rename` `-mutechannel` `-unmutechannel` ")
+
+.addField(`🛡** | MOD COMMANDS **️`,
+" `-ban`  `-kick` `-warn` `-mute` `-unmute` `-crole` `-softban` `-clear` `-v2m` `-hidechannel` `-showchannel` ")
+
+.addField(`🌈** | COLORS COMMANDS **️`,
+" `-ccolors` `-dcolors` `-color` ")
+
+.addField(`🕋 **| ISLAMIC COMMANDS**`,
+ " `-quran ` `-stop` `-اذكار`  " )
+
+ .addField(`️️🎶 **| MUSIC COMMANDS**`,
+ " `-mnowplaying` `-mplay` `-mplaylists` `-mrepeat` `-mqueue` `-msearch` `-mscsearch` `-mshuffle` `-mskip`  " )
+
+.addField(`🖼** | IMAGE COMMANDS **️`,
+"  `-gif` `-imgur`")
+
+.addField(`️️🎯** | FUN COMMANDS **`,
+"  `-roll` `-dick` `-kill` `-marry` `-fuckyou` `-cat` `-draw` ")
+
+.addField(`:video_game:** | GAMES COMMANDS **`,
+"`-xo` `-عواصم` `-sarahah` `-فكك` `-rps` `-امثال` `.` `-اعلام` `.` `-احصاء` `.` `ايموجي-`")
+
+.addField(`🕹** | FLH COMMANDS **`,
+" `حب` `-صراحه` `-كت تويت` `-لو خيروك` `-عقاب`")
+
+.addField(`👤 **| INFO COMMANDS **`,
+" `-ping` `-id ` `-هويتي` `-userinfo` `-serverinfo`  `-roles` `-members` ")
+
+ .addField(`🔧 **| BOT INFO**`,
+" `-invite` `-support` `-info` `-stats` ")
+
+ .addField("🌍 **| OWNER :**   ",
+" `-contact` `-sug` `-bug` ")
+.addField("**:globe_with_meridians: | WEBSITE :**","https://dreamsbot.wixsite.com/dreams")
+ .addField('🔗 **| INVITE** :' , " https://goo.gl/s8AwxX")
+ .addField('🔗 **| SUPPORT SERVER** :' , " https://discordapp.com/invite/gP6q8tY")
+  .setFooter(`©  Dream™ `)
+message.react("📮")
+ 
+message.author.sendEmbed(embed);
+    }
+});
+
+
+//help general ----------------------------------------------------------------------------------------------------------------------------------------------
+
+client.on('message', message => {
+     if (message.content === "-help general") {
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+ const embed = new Discord.RichEmbed()
+         .setDescription(`  ** 「💎 | GENERAL COMMANDS」**`)
+ .addField("`-timer`",
+" To Start A Timer .")
+ .addField("`-short`",
+" To Short Any Link With Google Shortner .")
+.addField("`-google`",
+" To Search In Google .")
+  .addField("`-translate`",
+" To translate a sentence from & to differnt langs **Ex:** -translate english arabic hi")
+.addField("`-discrim`",
+" To Find People With the Same discriminator .")
+ .addField("`-flip`",
+" To Flip A Coin (TAILS Or HEADS) .")
+ .addField("`-sicon`",
+" To Preview The Server Icon  .")
+ .addField("`-embed`",
+" To Send Your Message In Embed  .")
+ .addField("`-rpoll`",
+" To Start A Reaction Poll .")
+ .addField("`-poll`",
+" To Start A Random Poll .")
+
+ .addField("`-avatar`",
+"  To Preview Member's Avatar")
+ 
+ .addField("`-dt`",
+" To preview Time & Date In 3 Diffrent Countries  .")
+
+.setColor("RANDOM")
+.addField("🌍 **| OWNER :**   ",
+" `-contact` ")
+.setFooter(`©  SOKA™ `)
+message.react("💎")
+message.author.sendEmbed(embed);
+
+    }
+});
+
+
+//help special ----------------------------------------------------------------------------------------------------------------------------------------------
+
+client.on('message', message => {
+     if (message.content === "-help special") {
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+ const embed = new Discord.RichEmbed()
+         .setDescription(`** 「💫| SPECIAL COMMANDS」**`)
+               
+                   .addField("`-wlc`",
+" To Active Welcome & Leave In Your Server .")
+ .addField("`-iwlc`",
+" To Active image Welcome In Your Server **Command :**  -iwlc toggle  .")
+ .addField("`-as`",
+" To Preview Auto-Responding Settings")
+.addField("`-rainbow`",
+" To Change A Role Color Automaticly **Ex** -rainbow @rainbow_role .")
+ .addField("`-voice set`",
+"  To Create A Voice Channel Named With Voice Online Members   .")
+ .addField("`-logset`",
+" To Active Log Channel For Server Actions **Command :**   -log set .")
+ .addField("`-seen`",
+" To See Member's Last Activity in Server  .")
+
+.setColor("RANDOM")
+.addField("🌍 **| OWNER :**  ",
+" `-contact` ")
+.setFooter(`©  SOKA™ `)
+message.react("💫")
+message.author.sendEmbed(embed);
+
+    }
+});
+
+//help general ----------------------------------------------------------------------------------------------------------------------------------------------
+
+client.on('message', message => {
+     if (message.content === "-help colors") {
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+ const embed = new Discord.RichEmbed()
+         .setDescription(`** 「🌈 | COLORS COMMANDS」**`)
+         
+.addField("`-ccolors`",
+" To Create 25 Random Colors ")
+ .addField("`-colors`",
+" To Preview The 25  Colors")
+ .addField("`-dcolors`",
+" To Delete Colors Roles  .")
+ .addField("`-color`",
+" To Pick A color  .")
+.setColor("RANDOM")
+.addField("🌍 **| OWNER :**   ",
+" `-contact` ")
+.setFooter(`©  SOKA™ `)
+message.react("🌈")
+message.author.sendEmbed(embed);
+
+    }
+});
+
+//help bank----------------------------------------------------------------------------------------------------------------------------------------------
+
+client.on('message', message => {
+     if (message.content === "-help bank") {
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+ const embed = new Discord.RichEmbed()
+    .setDescription(`** 「💵** | BANK COMMANDS」**`)
+.addField("`-daily`",
+" To Get Your Salary Every 10 min   .")
+.addField("`-credits`",
+" To Check Your Credits  .")
+.addField("`-transfer`",
+" To Transfer Credits To Another Account  .")
+.addField("`-profile`",
+" To Preview Your Profile  .")
+.addField("`-level`",
+" To Check Your Level  .")
+
+.setColor("RANDOM")
+.addField("🌍 **| OWNER :**  ",
+" `-contact`")
+.setFooter(`©  SOKA™ `)
+message.react("💵")
+message.author.sendEmbed(embed);
+
+    }
+});
 
 //help admin ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -546,18 +749,14 @@ message.author.sendEmbed(embed)
 
 
 
-
+🔗 **| سيرفر الدعم و المساعدة** :  
+`)
 .setColor('0bbaba')
+  .setFooter(`©  SOKA™ `)
 message.author.sendEmbed(embed)
     
 }
 });
-
-
-
-//colors----------------------------------------------------------------------------------------------------
-
-
 
 client.login(process.env.BOT_TOKEN);
 
