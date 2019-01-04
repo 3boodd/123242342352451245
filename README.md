@@ -1,2 +1,0 @@
-# leadersquadlavaproxdb
-LEADER SQUAD
